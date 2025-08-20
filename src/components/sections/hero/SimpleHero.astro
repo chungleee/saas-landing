@@ -1,7 +1,9 @@
 ---
 import { Text } from '@src/components/ui/text/index.astro';
 import { Button } from '@src/components/ui/button/index.astro';
-import { Input } from '@src/components/ui/input/index.astro';
+
+import WaitlistForm from '../../ui/WaitlistForm/WaitlistForm';
+
 const { pageContent, ctaButton } = Astro.props;
 
 let submitted = false;
@@ -44,26 +46,5 @@ let email = '';
 		)
 	}
 	{/* End Button */}
-	{
-		!submitted ? (
-			<form class='mt-1 w-full max-w-sm'>
-				<Text variant='muted' class='text-left'>
-					{pageContent.email_label}
-				</Text>
-				<Input
-					type='text'
-					name='email'
-					class='global_base'
-					placeholder={pageContent.email_form_placeholder}
-					bind:value={email}
-					required
-				/>
-				<Button type='submit' size='submit' class='mt-4'>
-					{pageContent.submit_label}
-				</Button>
-			</form>
-		) : (
-			<p class='text-green-600 dark:text-green-400 mt-4'>{submit_message}</p>
-		)
-	}
+	<WaitlistForm pageContent={pageContent} client:load />
 </section>

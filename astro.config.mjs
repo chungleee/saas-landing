@@ -5,6 +5,8 @@ import sitemap from '@astrojs/sitemap';
 
 import tailwindcss from '@tailwindcss/vite';
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   // change site url to your own
@@ -32,7 +34,7 @@ export default defineConfig({
 
     plugins: [tailwindcss()],
   },
-  integrations: [sitemap()],
+  integrations: [sitemap(), react()],
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',
