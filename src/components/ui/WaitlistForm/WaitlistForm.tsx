@@ -3,16 +3,29 @@ import { Input } from '../input/input';
 import { Text } from '../text/text';
 import { Button } from '../button/button';
 
+import * as z from 'zod';
+
+const emailSchema = z.email('Must be a valid email.');
+
 const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (emailError) setEmailError('');
     setEmail(e.target.value);
   };
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('email submitted: ', email);
+    const result = emailSchema.safeParse(email);
+
+    if (!result.success) {
+      const errorMsg = z.prettifyError(result.error);
+      setEmailError(errorMsg);
+    } else {
+      console.log('email: ', email);
+    }
     setEmail('');
   };
 
@@ -30,6 +43,7 @@ const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
         required
         onChange={handleEmailChange}
       />
+      {emailError && <small>{emailError}</small>}
       <Button type="submit" size="submit" class="mt-4">
         {pageContent.submit_label}
       </Button>
