@@ -46,6 +46,7 @@ export interface TemplateProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
   href?: string;
+  disabled?: boolean;
   children?: ReactNode;
   /**
    * as プロパティによりレンダリングする要素タイプを指定できます。
@@ -63,6 +64,7 @@ export interface TemplateProps {
 export const Button = ({
   variant = 'default',
   size = 'default',
+  disabled,
   href,
   children,
   // as,
@@ -77,7 +79,7 @@ export const Button = ({
           {children}
         </a>
       ) : (
-        <button className={finalClassName} type="button" {...restProps}>
+        <button disabled={disabled} className={finalClassName} type="button" {...restProps}>
           {children}
         </button>
       )}
