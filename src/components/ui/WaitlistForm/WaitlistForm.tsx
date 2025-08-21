@@ -24,12 +24,16 @@ const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
       const errorMsg = z.prettifyError(result.error);
       setEmailError(errorMsg);
     } else {
-      console.log('email: ', email);
-      const response = await fetch('/api/waitlist-resend', {
+      const body = JSON.stringify({ email });
+      const response = await fetch('/api/join-waitlist', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body,
       });
+
       const data = await response.json();
-      console.log(data);
     }
     setEmail('');
   };
