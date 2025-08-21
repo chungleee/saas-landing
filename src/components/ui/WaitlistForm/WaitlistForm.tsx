@@ -16,7 +16,7 @@ const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
     setEmail(e.target.value);
   };
 
-  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const result = emailSchema.safeParse(email);
 
@@ -25,6 +25,11 @@ const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
       setEmailError(errorMsg);
     } else {
       console.log('email: ', email);
+      const response = await fetch('/api/waitlist-resend', {
+        method: 'POST',
+      });
+      const data = await response.json();
+      console.log(data);
     }
     setEmail('');
   };
@@ -40,11 +45,10 @@ const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
         class="global_base"
         placeholder={pageContent.email_form_placeholder}
         value={email}
-        required
         onChange={handleEmailChange}
       />
-      {emailError && <small>{emailError}</small>}
-      <Button type="submit" size="submit" class="mt-4">
+      {emailError && <small className="text-red-600">{emailError}</small>}
+      <Button disabled={!email} type="submit" size="submit" class="mt-4">
         {pageContent.submit_label}
       </Button>
     </form>
