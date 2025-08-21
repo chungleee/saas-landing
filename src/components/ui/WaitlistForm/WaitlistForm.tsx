@@ -10,6 +10,7 @@ const emailSchema = z.email('Must be a valid email.');
 const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [emailSuccess, setEmailSuccess] = useState('');
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (emailError) setEmailError('');
@@ -34,6 +35,14 @@ const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
       });
 
       const data = await response.json();
+
+      if (data.type === 'error') {
+        setEmailError('Something went wrong, please try again later');
+      }
+
+      if (data.type === 'success') {
+        setEmailSuccess('Thank you and welcome to the club!');
+      }
     }
     setEmail('');
   };
@@ -52,6 +61,7 @@ const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
         onChange={handleEmailChange}
       />
       {emailError && <small className="text-red-600">{emailError}</small>}
+      {emailSuccess && <small className="text-green-600">{emailSuccess}</small>}
       <Button disabled={!email} type="submit" size="submit" class="mt-4">
         {pageContent.submit_label}
       </Button>
