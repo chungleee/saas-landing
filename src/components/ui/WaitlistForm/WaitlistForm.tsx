@@ -62,7 +62,7 @@ const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
       />
       {emailError && <small className="text-red-600">{emailError}</small>}
       {emailSuccess && <small className="text-green-600">{emailSuccess}</small>}
-      <Button disabled={!email} type="submit" size="submit" class="mt-4">
+      <Button disabled={!email} type="submit" size="submit" class="mt-4 cursor-pointer">
         {pageContent.submit_label}
       </Button>
     </form>
