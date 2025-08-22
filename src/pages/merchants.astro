@@ -1,9 +1,9 @@
 ---
 // UI Components
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Hero from '@components/sections/hero/index.astro';
-import ProductPromise from '@components/sections/productPromise/index.astro';
-import Waitlist from '@components/sections/newsLetter/index.astro';
+import PricingList from '@components/sections/pricingList/index.astro';
+import PricingTable from '@components/sections/pricingTable/index.astro';
+import { Text } from '@src/components/ui/text/index.astro';
 
 // i18n imports
 import { loadPageContents, LANG_LIST, DEFAULT_LANG } from '@src/i18n/utils';
@@ -14,12 +14,14 @@ const locale: Lang = (Astro.params as { lang?: Lang }).lang || DEFAULT_LANG;
 
 let pageContent: any = {};
 try {
-	pageContent = await loadPageContents(locale, 'index');
-	// console.log(pageContent);
+	pageContent = await loadPageContents(locale, 'plans');
 } catch (error) {
 	console.error('Translation loading failed:', error);
 	// Add fallback translation handling here if necessary
 }
+
+const { page } = pageContent;
+
 // Generate static paths dynamically based on available languages
 export async function getStaticPaths() {
 	if (DEFAULT_LANG === null) {
@@ -35,7 +37,18 @@ export async function getStaticPaths() {
 ---
 
 <BaseLayout pageContent={pageContent} meta={pageContent.page.meta}>
-	<Hero type='simple' ctaButton={false} pageContent={pageContent.page.hero} pictureRight={false} />
-	<ProductPromise pageContent={pageContent.page.product_promises} />
-	<Waitlist type='simple' pageContent={pageContent.page.waitlist} />
+	{/* Page Headline */}
+	<div class='py-12'>
+		<section class='text-center mb-8 mt-15'>
+			<Text size='headline' as='h1'>
+				{page.headline}
+			</Text>
+			<Text variant='muted' size='sub_headline'>{page.sub_headline}</Text>
+		</section>
+	</div>
+
+	<PricingList type='simple' pageContent={page.pricing_plans} />
+	<div class='mb-10'>
+		<PricingTable type='simple' pageContent={page.pricing_table} />
+	</div>
 </BaseLayout>

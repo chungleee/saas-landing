@@ -5,11 +5,21 @@ import sitemap from '@astrojs/sitemap';
 
 import tailwindcss from '@tailwindcss/vite';
 
+import react from '@astrojs/react';
+
+import netlify from '@astrojs/netlify';
+
 // https://astro.build/config
 export default defineConfig({
   // change site url to your own
   site: `https://localhost:4321`,
+
+  prefetch: {
+    prefetchAll: true,
+  },
+
   output: `static`,
+
   vite: {
     build: {
       rollupOptions: {
@@ -32,10 +42,14 @@ export default defineConfig({
 
     plugins: [tailwindcss()],
   },
-  integrations: [sitemap()],
+
+  integrations: [sitemap(), react()],
+
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',
     },
   },
+
+  adapter: netlify(),
 });

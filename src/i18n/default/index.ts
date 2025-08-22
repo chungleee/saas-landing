@@ -1,7 +1,8 @@
 export default {
   meta: {
     title: 'AstroRise — Blazing-Fast, Customizable Astro Theme',
-    description: 'AstroRise is a high-performance Astro theme built for speed, flexibility, and modern development workflows. Create stunning websites effortlessly with a seamless developer experience.',
+    description:
+      'AstroRise is a high-performance Astro theme built for speed, flexibility, and modern development workflows. Create stunning websites effortlessly with a seamless developer experience.',
     robots: {
       index: true,
       follow: true,
@@ -9,28 +10,31 @@ export default {
   },
   // Translation for index page
   hero: {
-    headline: 'Ignite Your Astro Adventure',
+    headline: 'One rewards program. Every cafés you love.',
     sub_headline:
-      'Explore innovative solutions that elevate your online presence. Join us to transform your digital journey.',
-    cta_text: 'Get started',
+      'Collect points wherever you sip, redeem anywhere in the network. Supporting local has never been this rewarding.',
+    cta_text: 'Join the waitlist',
     cta_link: '',
     img_file: 'placeholder.webp',
+    email_label: 'Email address',
+    email_form_placeholder: 'Your email address',
+    submit_label: 'Join the waitlist',
   },
   product_promises: {
-    headline: 'Why choose AstroRise?',
-    sub_headline: 'Unlock the full potential of your website with our Astro theme designed for speed and flexibility.',
+    headline: 'Why join Looply?',
+    sub_headline: 'Collect points across all your favorite spots and cash them in anywhere. Every coffee counts.',
     promises: [
       {
-        lead_in_text: 'Optimized for Speed',
-        description: 'AstroRise is built to deliver exceptional speed, ensuring your site loads quickly and keeps visitors engaged.',
+        lead_in_text: 'Earn Everywhere, Redeem Anywhere',
+        description: 'Collect points at every café in the network and use them across all participating merchants.',
       },
       {
-        lead_in_text: 'Lightweight and Fast',
-        description: 'Our theme is lightweight, resulting in faster performance without compromising on design or functionality.',
+        lead_in_text: 'Boost Your Daily Ritual',
+        description: 'Turn everyday coffee runs into rewards that actually add up.',
       },
       {
-        lead_in_text: 'Flexible Customization',
-        description: 'Easily customize every aspect of your site with AstroRise, allowing for a unique look and feel tailored to your brand.',
+        lead_in_text: 'Support Local, Get Rewarded',
+        description: 'Support the cafés that make your community unique.',
       },
     ],
   },
@@ -41,14 +45,16 @@ export default {
       {
         id: 'fast-performance',
         lead_in_text: 'Astro-Powered Speed',
-        description: 'Experience the unparalleled speed of Astro, optimized for quick loading times and seamless navigation.',
+        description:
+          'Experience the unparalleled speed of Astro, optimized for quick loading times and seamless navigation.',
         color: 'text-black dark:text-white',
         icon: 'lightning',
       },
       {
         id: 'seo-optimized',
         lead_in_text: 'SEO Optimized',
-        description: 'AstroRise is designed with SEO best practices in mind, helping your website rank higher and attract more visitors.',
+        description:
+          'AstroRise is designed with SEO best practices in mind, helping your website rank higher and attract more visitors.',
         color: 'text-black dark:text-white',
         icon: 'search',
       },
@@ -69,14 +75,16 @@ export default {
       {
         id: 'user-friendly',
         lead_in_text: 'User-Centric Design',
-        description: 'Enjoy an intuitive interface designed with user experience in mind, thanks to Astro’s principles.',
+        description:
+          'Enjoy an intuitive interface designed with user experience in mind, thanks to Astro’s principles.',
         color: 'text-black dark:text-white',
         icon: 'users',
       },
       {
         id: 'customizable',
         lead_in_text: 'Easy Customization',
-        description: 'Fully customize your site with AstroRise, taking advantage of Astro’s flexibility for unique branding.',
+        description:
+          'Fully customize your site with AstroRise, taking advantage of Astro’s flexibility for unique branding.',
         color: 'text-black dark:text-white',
         icon: 'customize',
       },
@@ -114,8 +122,8 @@ export default {
     CTA_link: '',
   },
   waitlist: {
-    headline: 'Join the waitlist',
-    sub_headline: 'Enter your email address and we’ll let you know when your spot is ready',
+    headline: 'Join the community!',
+    sub_headline: 'Enter your email address and we’ll keep you updated on when it launches',
     email_label: 'Email address',
     email_form_placeholder: 'Your email address',
     submit_label: 'Join the waitlist',

@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 # yarn folder
 .yarn/
+# Local Netlify folder
+.netlify
