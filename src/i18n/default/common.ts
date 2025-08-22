@@ -1,23 +1,23 @@
 export default {
   // Common translation in BaseLayout, Navbar and Footer
-  title: 'AstroRise',
-  brand: '🚀 AstroRise',
+  title: 'Looply Rewards',
+  brand: 'Looply Rewards',
   navigation: [
     {
-      label: 'Home',
+      label: 'Customers',
       link: '/',
     },
     {
-      label: 'Plans',
-      link: '/plans',
+      label: 'Merchants',
+      link: '/merchants',
     },
     {
-      label: 'About',
-      link: '/about',
+      label: 'Mission',
+      link: '/Mission',
     },
   ],
   footer: {
-    rights: () => `© ${new Date().getFullYear()} Your Company. All rights reserved.`,
+    rights: () => `© ${new Date().getFullYear()} Looply Rewards. All rights reserved.`,
     // If you want to show the year range, you can use the following code and comment the above line
     // rights: () => `© 2024-${new Date().getFullYear()} Your Company. All rights reserved.`,
   },

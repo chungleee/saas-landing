@@ -14,6 +14,10 @@ export default defineConfig({
   // change site url to your own
   site: `https://localhost:4321`,
 
+  prefetch: {
+    prefetchAll: true,
+  },
+
   output: `static`,
 
   vite: {
