@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
+const resend = new Resend(import.meta.env.RESEND_CUSTOMER_API_KEY);
 
 export const POST: APIRoute = async ({ request }) => {
   const body = await request.json();
