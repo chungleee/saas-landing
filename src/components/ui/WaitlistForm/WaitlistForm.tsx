@@ -7,7 +7,12 @@ import * as z from 'zod';
 
 const emailSchema = z.email('Must be a valid email.');
 
-const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
+interface WaitlistFormProps {
+  pageContent: any;
+  waitlistTarget: 'customers' | 'merchants';
+}
+
+const WaitlistForm = ({ pageContent, waitlistTarget }: WaitlistFormProps) => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [emailSuccess, setEmailSuccess] = useState('');
@@ -26,7 +31,7 @@ const WaitlistForm = ({ pageContent }: { pageContent: any }) => {
       setEmailError(errorMsg);
     } else {
       const body = JSON.stringify({ email });
-      const response = await fetch('/api/join-waitlist', {
+      const response = await fetch(`/api/${waitlistTarget}/join-waitlist`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ import { Button } from '@src/components/ui/button/index.astro';
 
 import WaitlistForm from '../../ui/WaitlistForm/WaitlistForm';
 
-const { pageContent, ctaButton } = Astro.props;
+const { pageContent, ctaButton, waitlistTarget } = Astro.props;
 ---
 
 <section
@@ -43,5 +43,5 @@ const { pageContent, ctaButton } = Astro.props;
 		)
 	}
 	{/* End Button */}
-	<WaitlistForm pageContent={pageContent} client:load />
+	<WaitlistForm waitlistTarget={waitlistTarget} pageContent={pageContent} client:load />
 </section>

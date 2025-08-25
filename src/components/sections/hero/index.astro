@@ -6,22 +6,24 @@ import SplitHero from './SplitHero.astro';
 
 // Hero components
 const components = {
-  simple: SimpleHero,
-  split: SplitHero,
-  // add more components here
+	simple: SimpleHero,
+	split: SplitHero,
+	// add more components here
 };
 
 // Props
 const {
-  type = 'simple',
-  ctaButton = true,
-  pictureRight = true,
-  pageContent,
+	type = 'simple',
+	ctaButton = true,
+	pictureRight = true,
+	pageContent,
+	waitlistTarget,
 } = Astro.props as {
-  type?: keyof typeof components;
-  ctaButton?: boolean;
-  pictureRight?: boolean;
-  pageContent?: Record<string, any>;
+	type?: keyof typeof components;
+	ctaButton?: boolean;
+	pictureRight?: boolean;
+	pageContent?: Record<string, any>;
+	waitlistTarget: 'customers' | 'merchants';
 };
 
 // make component based on input type
@@ -56,4 +58,9 @@ How to use:
 */
 ---
 
-<Component pageContent={pageContent} ctaButton={ctaButton} pictureRight={pictureRight} />
+<Component
+	waitlistTarget={waitlistTarget}
+	pageContent={pageContent}
+	ctaButton={ctaButton}
+	pictureRight={pictureRight}
+/>
