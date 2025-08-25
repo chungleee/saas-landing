@@ -4,12 +4,17 @@ import SimpleNewsLetter from './SimpleNewsLetter.astro';
 
 // Navbar components
 const components = {
-  simple: SimpleNewsLetter,
+	simple: SimpleNewsLetter,
 };
 
-const { type = 'simple', pageContent } = Astro.props as {
-  type?: keyof typeof components;
-  pageContent?: Record<string, any>;
+const {
+	type = 'simple',
+	pageContent,
+	waitlistTarget,
+} = Astro.props as {
+	type?: keyof typeof components;
+	pageContent?: Record<string, any>;
+	waitlistTarget: 'customers' | 'merchants';
 };
 
 // make component based on input type
@@ -41,4 +46,4 @@ How to use:
 */
 ---
 
-<Component pageContent={pageContent} />
+<Component waitlistTarget={waitlistTarget} pageContent={pageContent} />

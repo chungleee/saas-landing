@@ -2,7 +2,10 @@
 import { Text } from '@src/components/ui/text/index.astro';
 import WaitlistForm from '../../ui/WaitlistForm/WaitlistForm';
 
-const { pageContent } = Astro.props;
+const { pageContent, waitlistTarget } = Astro.props as {
+	pageContent: any;
+	waitlistTarget: 'customers' | 'merchants';
+};
 ---
 
 <section class='flex flex-col items-center justify-center text-center py-16 lg:py-24 px-5'>
@@ -12,5 +15,5 @@ const { pageContent } = Astro.props;
 	<Text variant='muted' size='sub_headline'>
 		{pageContent.sub_headline}
 	</Text>
-	<WaitlistForm pageContent={pageContent} client:load />
+	<WaitlistForm waitlistTarget={waitlistTarget} pageContent={pageContent} client:load />
 </section>
