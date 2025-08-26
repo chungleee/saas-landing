@@ -42,8 +42,8 @@ export async function getStaticPaths() {
 		pageContent={pageContent.page.hero}
 		pictureRight={false}
 	/>
-	<!-- <ProductPromise pageContent={pageContent.page.product_promises} /> -->
-	<!-- <Waitlist type='simple' pageContent={pageContent.page.waitlist} /> -->
+	<ProductPromise pageContent={pageContent.page.product_promises} />
+	<Waitlist waitlistTarget='merchants' type='simple' pageContent={pageContent.page.waitlist} />
 </BaseLayout>
 
 <!-- ---
