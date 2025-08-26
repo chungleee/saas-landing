@@ -24,6 +24,34 @@ export default {
     email_form_placeholder: 'Your email address',
     submit_label: 'Join the waitlist',
   },
+  product_promises: {
+    headline: 'Features & Incentives',
+    promises: [
+      {
+        lead_in_text: 'Turn Visitors Into Regulars',
+        description: 'Shared loyalty points that keep customers local.',
+      },
+      {
+        lead_in_text: 'Join a Bigger Network',
+        description: 'Reach new customers through the shared network.',
+      },
+      {
+        lead_in_text: 'Grow With the Network',
+        description: 'Strengthen community ties while boosting revenue.',
+      },
+      {
+        lead_in_text: 'Insights That Drive Growth',
+        description: 'Data-driven insights to improve retention.',
+      },
+    ],
+  },
+  waitlist: {
+    headline: 'Become a early partner!',
+    sub_headline: 'Enter your email address and we’ll keep you updated on when it launches',
+    email_label: 'Email address',
+    email_form_placeholder: 'Your email address',
+    submit_label: 'Join the waitlist',
+  },
 };
 
 // Main Benefits (3–4 simple cards):

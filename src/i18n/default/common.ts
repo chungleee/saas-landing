@@ -11,10 +11,10 @@ export default {
       label: 'Merchants',
       link: '/merchants',
     },
-    {
-      label: 'Mission',
-      link: '/Mission',
-    },
+    // {
+    //   label: 'Mission',
+    //   link: '/mission',
+    // },
   ],
   footer: {
     rights: () => `© ${new Date().getFullYear()} Looply Rewards. All rights reserved.`,
